@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="Peter Chen">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Carpark management program">	
+	<title>SmartPark</title>
+	<link rel="icon" href="favicon.ico"/>
+	<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis:400, 700"> -->
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<!-- Top navication bar -->
+	<nav class="nav-bar">
+		<h1>SmartPark</h1>
+		<div class="input-box">
+			<input class="input t-input" id="input-field" type="text" placeholder="Re-initialize number of space...">
+			<svg class="mySvg">
+		        <path class="magnifier" d="M554 154 A 14 14 90 1 1 554.1 153.9 L 570 170"
+		              stroke="#fff" stroke-width="3" stroke-linejoin="round" fill="none">
+		        </path>
+		        <path class="input-line" d="M570 170 L310 170 L310 132 L570 132 L570 170"
+		              stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none">
+		        </path>
+	    	</svg>
+		</div>
+	</nav>
+
+	<!-- Side navigation bar -->
+	<nav id="cd-vertical-nav">
+		<ul>
+			<li>
+				<a href="#page0" data-number="0">
+					<span class="cd-dot"></span>
+					<span class="cd-label">Start</span>
+				</a>
+			</li>
+			<li>
+				<a href="#page1" data-number="1">
+					<span class="cd-dot"></span>
+					<span class="cd-label">Overview</span>
+				</a>
+			</li>
+			<li>
+				<a href="#page2" data-number="2">
+					<span class="cd-dot"></span>
+					<span class="cd-label">Usage</span>
+				</a>
+			</li>
+			<li>
+				<a href="#page3" data-number="3">
+					<span class="cd-dot"></span>
+					<span class="cd-label">Charges</span>
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+	<!--=============== Page0: Landing Page ===============-->
+	<div class="page" id="page0">
+		<a href="/about" class="doc">Documentation</a>
+		<h2>Manage your parking lot</h2>
+		<img src="img/car2.png" alt="logo" width="123">
+		<span class="m-input">
+			<input class="input m-input-field" type="text" id="main-input"/>
+			<label class="m-input-label" for="main-input">
+				<svg class="graphic" width="100%" height="100%" viewBox="0 0 404 77" preserveAspectRatio="none">
+					<path d="m0,0 l404,0 l0,77 l-404,0 l0,-77z"/>
+				</svg>
+				<span class="m-input-label-content">Initialize number of spaces here!</span>
+			</label>
+		</span>
+	</div>
+
+	<!--=============== Page1: Carpark Overview ===============-->
+	<div class="page" id="page1">
+		<h2>Carpark Usage</h2>
+		<svg class="USArc" width="720" height="720"></svg>
+	</div>
+
+	<!--=============== Page2: Carpark Control ===============-->
+	<div class="page" id="page2">
+		<h2>Carpark Control</h2>
+		<span class="line1">There is a total of&nbsp;</span>
+		<span class="line1" id="totalSpace">X</span>
+		<span class="line1">&nbsp;spaces.</span>
+		<br>
+		<span class="line2" id="occupiedSpace">Y</span>
+		<span class="line2"> &nbsp;regular spaces are occupied.</span>
+		<br>
+		<span class="line3" id="emptySpace">X - Y</span>
+		<span class="line3"> &nbsp;are empty.</span>
+		<br>
+		<span class="line4" id="disabledSpace">X * 0.1</span>
+		<span class="line4">&nbsp;are for the disabled.&nbsp;</span>
+		<span class="line4" id="disabledOccupied">Z</span>
+		<span class="line4">&nbsp;of them are taken.</span>
+		<!-- Tab links -->
+		<div class="tab">
+			<button class="tablinks" onclick="openTab(event, 'Enter')">Enter</button>
+			<button class="tablinks" onclick="openTab(event, 'Exit')">Exit</button>
+		</div>
+		
+		<!-- Tab content -->
+		<div id="Enter" class="tabcontent">
+			<h3>Car Entry</h3>
+			<form>
+				Plate number: <br>
+				<input type="text" name="plate-number" id="plate-number" placeholder="ABCD1234"><br>
+				Entry date: <br>
+				<input type="text" name="entry-date" id="entry-date" placeholder="YYYY-MM-DD"><br>
+				Entry time: <br>
+				<input type="text" name="entry-time" id="entry-time" placeholder="00:00"><br>
+				<input type="radio" name="disabled" value="regular" checked> Regular<br>
+  			<input type="radio" name="disabled" value="disabled" id="disabled"> Disabled<br>
+			</form>
+			<button type="button" form="Enter" id="car-entry">Submit</button>
+		</div>
+		
+		<div id="Exit" class="tabcontent">
+			<h3>Car Exit</h3>
+			<form>
+				Plate number: <br>
+				<input type="text" name="plate-number" id="exit-plate-number" placeholder="ABCD1234"><br>
+				Exit date: <br>
+				<input type="text" name="exit-date" id="exit-date" placeholder="YYYY-MM-DD"><br>
+				Exit time: <br>
+				<input type="text" name="exit-time" id="exit-time" placeholder="00:00"><br>
+			</form>
+			<button type="button" form="Exit" id="car-exit">Submit</button>
+		</div>
+	</div>
+
+	<!--=============== Page3: Carpark Charges ===============-->
+	<div class="page" id="page3">
+		<h2>Carpark Charges</h2>
+		<p>1st hour: 15 AED</p>
+		<p>2nd hour onward: 10 AED/hour</p>
+		<p>Illegitimate parking in disabled spaces: 1000 AED fine</p>
+	</div>
+
+	<footer>
+		<p>Built by Peter Chen</p>
+	</footer>
+
+	<!-- firebase -->
+	<script src = "https://www.gstatic.com/firebasejs/4.10.1/firebase.js" ></script>
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+	<!-- D3.js -->
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+ 	<!-- Custom JavaScript -->
+ 	<script src="js/script.js"></script>
+</body>
+</html>

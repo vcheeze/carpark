@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Documententation</title>
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+	<style>
+		body {
+			margin: 50px 100px;
+			font-family: 'Josephin Sans', sans-serif;
+			line-height: 150%;
+			background-color: white;
+		}
+	</style>
+</head>
+<body>
+	<h1>Documentation</h1>
+		<h2>What is this?</h2>
+			<p>SmartPark is a carpark management web app that provides an easy way to manage your parking lot.</p>
+		
+		<h2>How is the code structured?</h2>
+			<p>
+				This is a Node/Express project. The file <b>app.js</b> is the server file that serves the routes.
+				In the <b>view</b> directory are the html files, including <b>index.html</b> - our landing page - and
+				<b>about.html</b>, which is the documentation (yup, that's this page).
+			</p>
+			<p>
+				The <b>public</b> folder holds the css and js files, as well as fonts and images that I use for this project.
+				I will go into more technical details in the following section.
+			</p>
+
+		<h2>How is this app built?</h2>
+			<p>
+				As an overview, I used Node/Express as my base, and utilized <a href="https://firebase.google.com">Firebase</a> as my databse.
+				<b>index.html</b> includes all the visual elements, while <b>script.js</b> contains the logic. <b>style.css</b>
+				contains the styles for everything. I also used <a href="https://d3js.org/">D3.js</a> for some data visualization.
+			</p>
+			<p>
+				SmartPark is designed to be structured as different pages. The landing page allows the user to initialize
+				however many parking spaces he/she has in the carpark. The second page displays an overview of the carpark,
+				namely the percentage of spaces occupied. The third page allows for some basic admin control over the carpark,
+				including the logistics of a car entering and a car exiting. The date and time has to be entered in order
+				to calculate the cost.
+			</p>
+</body>
+</html>
